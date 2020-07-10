@@ -1,0 +1,16 @@
+"Weather"
+type Weather {
+  "Shop ID"
+  shopId: ID!
+
+  "Weather"
+  weather: String
+} 
+
+extend type Query {
+  "Query for Weather"
+  weather(
+    "Shop ID"
+    shopId: ID!
+  ): Weather
+}
