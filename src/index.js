@@ -1,4 +1,5 @@
 import pkg from "../package.json";
+import mutations from "./mutations/index.js";
 import queries from "./queries/index.js";
 import resolvers from "./resolvers/index.js";
 import schemas from "./schemas/index.js";
@@ -17,6 +18,7 @@ export default async function register(app) {
     graphQL: {
       resolvers,
       schemas
-    }
+    },
+    mutations
   });
 }

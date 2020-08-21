@@ -4,13 +4,27 @@ type Weather {
   shopId: ID!
 
   "Weather"
-  weather: String
+  weather: String!
 } 
 
 extend type Query {
+
   "Query for Weather"
   weather(
     "Shop ID"
     shopId: ID!
-  ): Weather
+  ): Weather!
+
+}
+
+extend type Mutation {
+
+  "Mutation for Mood"
+  updateMood(
+    "New mood"
+    mood: String!
+    "Shop ID"
+    shopId: ID!
+  ): String!
+
 }

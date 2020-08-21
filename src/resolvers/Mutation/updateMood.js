@@ -1,22 +1,24 @@
 import { decodeProductOpaqueId, decodeShopOpaqueId } from "../../xforms/id.js";
 
 /**
- * @name Query/weather
+ * @name Mutation/updateMood
  * @summary TODO
- * @param {Object} _ - unused
+ * @param {Object} _ unused
  * @param {Object} args - an object of all arguments that were sent by the client
- * @param {String} args.shopId - Shop id of the product
+ * @param {String} args.shopId - Shop id
  * @param {Object} context - an object containing the per-request state
- * @returns {Promise<Object>} Weather
+ * @returns {Promise<String>} Mood
  */
-export default async function weather(_, args, context) {
+export default async function updateMood(_, args, context) {
   const {
-    shopId: opaqueShopId
+    mood,  
+    shopId: opaqueShopId,
   } = args;
 
   const shopId = decodeShopOpaqueId(opaqueShopId);
 
-  return context.queries.weather(context, {
+  return context.mutations.updateMood(context, {
+    mood,  
     shopId
   });
 }
